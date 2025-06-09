@@ -11,7 +11,7 @@ function Navbar() {
 
     const handleLogout = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/user/logout', {}, {
+            const res = await axios.post('https://todobackend-production-7fa7.up.railway.app/api/user/logout', {}, {
                 withCredentials: true,
             });
 

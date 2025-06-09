@@ -17,7 +17,7 @@ function Todos() {
 
     const fetchTodos = async () => {
         try {
-            const res = await axios.get('http://localhost:5000/api/todo', { withCredentials: true });
+            const res = await axios.get('https://todobackend-production-7fa7.up.railway.app/api/todo', { withCredentials: true });
             setTodos(res.data);
         } catch (err) {
             console.error(err.response?.data || err.message);
@@ -28,7 +28,7 @@ function Todos() {
     const handleAdd = async () => {
         if (!task.trim()) return;
         try {
-            const res = await axios.post('http://localhost:5000/api/todo', { title: task }, { withCredentials: true });
+            const res = await axios.post('https://todobackend-production-7fa7.up.railway.app/api/todo', { title: task }, { withCredentials: true });
             setTodos(prev => [...prev, res.data]);
             setTask('');
             toast.success('Task added successfully!');
@@ -48,7 +48,7 @@ function Todos() {
     const handleEdit = async () => {
         try {
             await axios.put(
-                `http://localhost:5000/api/todo/${editId}`,
+                `https://todobackend-production-7fa7.up.railway.app/api/todo/${editId}`,
                 { title: editTitle, isCompleted: editCompleted },
                 { withCredentials: true }
             );
@@ -63,7 +63,7 @@ function Todos() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/todo/${id}`, { withCredentials: true });
+            await axios.delete(`https://todobackend-production-7fa7.up.railway.app/api/todo/${id}`, { withCredentials: true });
             fetchTodos();
             toast.success('Task deleted successfully!');
         } catch (err) {

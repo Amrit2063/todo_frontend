@@ -23,7 +23,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/user/register', formData, {
+      const res = await axios.post('https://todobackend-production-7fa7.up.railway.app/api/user/register', formData, {
         withCredentials: true,
       });
 
